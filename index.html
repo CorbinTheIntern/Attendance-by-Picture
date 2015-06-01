@@ -7,16 +7,19 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="node_modules/jquery.facedetection/src/ccv.js"></script> 
         <script src="node_modules/jquery.facedetection/src/jquery.facedetection.js"></script> 
     </HEAD>
     <BODY>
-        <script src=js/main.js></script>
         <center>
             <div id=container>
                 <video autoplay="true" id="videoElement"></video>
-                <canvas id="canvas" style="display:none;"></canvas>
-                <button id="btn" onclick="capture()">Start</button>
+                <button class="btn" onclick="capture()">Start</button>
+                <canvas id="canvas"></canvas>
+                <button class="btn" onclick="detectFaces()">Start</button>
             </div>
         </center>
+        <script src=js/main.js></script>
+        <script src="js/check.js"></script>
     </BODY>
 </HTML>
