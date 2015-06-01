@@ -1,22 +1,47 @@
-<!DOCTYPE HTML>
-<HTML>
-    <HEAD>
-        <meta charset="utf-8">
-        <title>Display Webcam Stream</title>
-        
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="node_modules/jquery.facedetection/src/jquery.facedetection.js"></script> 
-    </HEAD>
-    <BODY>
-        <script src=js/main.js></script>
-        <center>
-            <div id=container>
-                <video autoplay="true" id="videoElement"></video>
-                <canvas id="canvas" style="display:none;"></canvas>
-                <button id="btn" onclick="capture()">Start</button>
-            </div>
-        </center>
-    </BODY>
-</HTML>
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Display Webcam Stream</title>
+
+    <style>
+    #container {
+        margin: 0px auto;
+        width: 500px;
+        height: 375px;
+        border: 10px #333 solid;
+    }
+    #videoElement {
+        width: 500px;
+        height: 375px;
+        background-color: #666;
+    }
+    </style>
+    </head>
+
+    <body>
+    <div id="container">
+        <video autoplay="true" id="videoElement">
+
+        </video>
+    </div>
+    <script>
+    window.onload = function() {
+            var vid = document.getElementById("videoElement");
+            navigator.getUserMedia = navigator.getUserMedia || navigator.webskitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+            if (navigator.getUserMedia) {
+                navigator.getUserMedia({video:true}, handleVideo, videoError);
+            }
+
+            function handleVideo(stream) {
+                video.src = window.URL.createObjectURL(stream);
+            }
+
+            function videoError(e) {
+                console.error("No camera detected.");
+            }
+        }
+    </script>
+    </body>
+</html>
