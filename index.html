@@ -3,15 +3,20 @@
     <HEAD>
         <meta charset="utf-8">
         <title>Display Webcam Stream</title>
+        
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="node_modules/jquery.facedetection/src/jquery.facedetection.js"></script> 
     </HEAD>
     <BODY>
-        <div id=container>
-            <video autoplay="true" id="videoElement">
-            
-            </video>
-        </div>
-        <script src="js/check.js"></script>
         <script src=js/main.js></script>
+        <center>
+            <div id=container>
+                <video autoplay="true" id="videoElement"></video>
+                <canvas id="canvas" style="display:none;"></canvas>
+                <button id="btn" onclick="capture()">Start</button>
+            </div>
+        </center>
     </BODY>
 </HTML>
