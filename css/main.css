@@ -5,20 +5,8 @@
     border: 10px #333 solid;
 }
 
-#canvas {
+#videoElement {
     width: 500px;
     height: 375px;
     background-color: #666;
-}
-
-.grayScale {
-    +filter: grayscale(1);
-}
-
-.sepia {
-    +filter: sepia(1);
-}
-
-.blur {
-    +filter: blur(3px);
 }
